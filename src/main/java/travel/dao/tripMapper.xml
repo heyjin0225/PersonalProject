@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="travelSQL">
+	<!-- 국내 목록 -->
+	<select id="domesticList" parameterType="String" resultType="trip">
+		select * from trip where countryid=#{countryid}
+		<!-- <![CDATA[select * from (select rownum rn, tt.* from (select * from trip order by ref)tt) where rn>=#{startNum} and rn<=#{endNum}]]> -->
+		<!-- select * from (select rownum rn, tt.* from (select * from board order by ref desc, step asc)tt) where rn between #{startNum} and #{endNum} -->
+	</select>
+	
+	<!-- 해외 여행지 목록 -->
+	<select id="overseasList" parameterType="String" resultType="trip">
+		select * from trip where countryid=#{countryid}
+	</select>
+	
+	<!-- 해외 여행지 대륙 선택 -->
+	<select id="continentList" parameterType="String" resultType="trip">
+		select * from trip where countryid2=#{countryid2}
+	</select>
+	
+	<insert id="travel_write_image" parameterType="trip">
+		insert into trip values(seq_trip.nextval, #{id}, #{countryid}, #{cityid}, #{wordname}, #{citycontent}, #{cityimage}, sysdate, seq_trip.currval, 1, #{countryid2})
+	</insert>
+	
+	<!-- 해외 나라 목록 -->
+	<select id="KoreaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="AsiaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="EuropeList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="MiddleEastList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="AfricaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="NorthAmericaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="SouthAmericaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="OceaniaList" parameterType="String" resultType="countryInfo">
+		select * from countryInfo where countryid2=#{countryid2}
+	</select>
+	
+	<select id="Search" parameterType="java.util.Map" resultType="countryInfo">
+		select * from countryinfo where ${searchOption} like '%'||#{keyword}||'%'
+	</select>
+	
+	<select id="getWordnameInfo" parameterType="String" resultType="java.util.Map">
+		select * from countryInfo where wordname=#{wordname}
+	</select>
+	
+	<!-- 좋아요 -->
+	<select id="getHeart" parameterType="String" resultType="heart">
+		select * from heart where heart_id=#{heart_id}
+	</select>
+	
+	<insert id="insertHeart" parameterType="java.util.Map">
+		insert into heart values(#{heart_no}, #{heart_id}, 1)
+	</insert>
+	
+	<delete id="deleteHeart" parameterType="java.util.Map">
+		delete heart where heart_no=#{heart_no } and heart_id = #{heart_id}
+	</delete>
+	
+</mapper>

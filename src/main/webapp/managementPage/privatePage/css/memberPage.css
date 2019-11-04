@@ -1,0 +1,147 @@
+@charset "UTF-8";
+ul.myPage_menu_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #f1f1f1;
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+    z-index : 5;
+    text-align: center;   
+    float:left;
+    height:100vh;
+    vertical-align:bottom;
+    margin-top: -10px;
+}
+li.myPage_menu_li{
+   
+}
+li.myPage_menu_li a {
+   display: block;
+    color: #000;
+    padding-top: 15px;
+    text-decoration: none;
+    vertical-align:middle;
+    padding-bottom: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+li.myPage_menu_li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.myPage_menu_ul_active {
+    background-color: #555;
+    color: white;
+}
+
+div.myPage {
+   width:100%;
+   min-height: 80vh;
+   height:auto;
+}
+
+.myPage_body {
+   width: 76%;
+   height: 80%;
+   padding: 50px 0px 0px 50px;
+   z-index : 5;
+   min-height: 80%;
+   float:left;
+}
+
+/* 회원정보수정 css */
+.modifyTable{
+	width: 50%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+.modifyTable td{
+	border-bottom: 1px solid #444444;
+    padding: 10px;
+    color: black;
+}
+
+.modifyTable td:nth-child(1){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable td:nth-child(3){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable td:nth-child(5){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable td:nth-child(7){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable td:nth-child(9){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable td:nth-child(11){
+	font-weight: bold;
+	background: #d3d5d8;
+}
+
+.modifyTable #zipcode,
+.modifyTable #addr1,
+.modifyTable #addr2{
+	margin-top: 5px;
+}
+
+
+
+/* 회원탈퇴폼 */
+.deleteTable{
+	width: 50%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+.deleteTable td{
+	border-bottom: 1px solid #444444;
+    padding: 10px;
+    color: black;
+}
+
+.deleteTable td:nth-child(1){
+	text-align: center;
+	font-weight: bold;
+	font-size: 12pt;
+	color: black;
+	height: 20px;
+	width: 300px;
+	vertical-align: middle;
+	background: #d3d5d8;
+}
+
+.deleteTable td:nth-child(3){
+	text-align: center;
+	font-weight: bold;
+	font-size: 12pt;
+	color: black;
+	height: 20px;
+	width: 300px;
+	vertical-align: middle;
+	background: #d3d5d8;
+}
+
+.deleteTable .btn-container{
+	font-weight: bold;
+	color: black;
+}
+
+.deleteTable .input-container{
+	margin: 10px 0px 10px 10px;
+}

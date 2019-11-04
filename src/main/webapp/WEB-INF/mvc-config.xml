@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Uncomment and your base-package here:
+         <context:component-scan
+            base-package="org.springframework.samples.web"/>  -->
+
+    <mvc:annotation-driven />
+    
+	<bean id="indexController" class="main.controller.IndexController"></bean>
+    <bean id="loginController" class="member.controller.LoginController"></bean>
+    <bean id="memberController" class="member.controller.MemberController"></bean>
+    <bean id="infoController" class="info.controller.InfoController"></bean>
+    <bean id="manageController" class="management.controller.ManageController"></bean>
+    <bean id="privatePageController" class="management.controller.PrivatePageController"></bean>
+	<bean id="adminPageController" class="management.controller.AdminPageController"></bean>
+	<bean id="travelController" class="travel.controller.TravelController"></bean>
+	<bean id="countryCotroller" class="country.controller.CountryController"></bean>
+	    
+	<context:component-scan base-package="member.bean" />
+	<context:component-scan base-package="member.dao"/>
+	
+	<context:component-scan base-package="info.bean"/>
+	<context:component-scan base-package="info.dao"/>
+	
+	<context:component-scan base-package="management.bean"/>
+	<context:component-scan base-package="management.dao"/>
+	
+	<context:component-scan base-package="main.dao"/>
+	
+	<context:component-scan base-package="travel.bean"/>
+	<context:component-scan base-package="travel.dao"/>
+
+	<context:component-scan base-package="country.bean"/>
+	<context:component-scan base-package="country.dao"/>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- json -->
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<property name="contentType" value="text/html;charset=UTF-8" />
+	</bean>
+	
+	<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0" />
+	</bean>
+	
+	<!-- 파일 업로드(file upload) -->
+	<bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:maxUploadSize="5000000" />
+	
+	
+</beans>
+

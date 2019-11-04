@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mainSQL">
+	<select id="getRecommendView" resultType="java.util.Map">
+		select * from(select c.*, i.cityaddr from cityrecommend c 
+		inner join countryinfo i on c.wordname=i.wordname 
+		group by c.cityid, c.cityimage, c.wordname, i.cityaddr) where rownum between 1 and 6
+	</select>
+	
+</mapper>

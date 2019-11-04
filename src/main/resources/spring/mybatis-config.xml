@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="member.bean.MemberDTO" alias="member"/>
+		<typeAlias type="info.bean.InfoDTO" alias="info"/>
+		<typeAlias type="travel.bean.TripDTO" alias="trip"/>
+		<typeAlias type="management.bean.CountryInfoDTO" alias="countryInfo"/>
+		<typeAlias type="travel.bean.HeartDTO" alias="heart"/>
+	</typeAliases>
+</configuration>

@@ -1,0 +1,53 @@
+* {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.countryManagement {
+	color : #636363;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: 'Nanum Gothic', sans-serif;
+	width: 1200px;
+	height: auto;
+}
+
+.countryTotal {
+	/* position: relative; */
+	font-size: 18px;	
+}
+
+.countryManagement {
+	width: 1100px;
+	height: auto;
+}
+
+table {
+	border: 2px solid #EDEDED;
+	padding: 5px;
+}
+
+table td {
+	text-align: center;
+	height: 40px;
+	width: 1141px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: bold;
+}
+
+table tbody {
+	text-align: center;
+	color : black;
+	padding: 5px;
+	border: 1px solid black;
+	border-spacing: 1;
+	overflow: scroll;
+}
+
+.countryDeleteBtn {
+	opacity: .8;
+	transition: .15s ease;
+}
+.countryDeleteBtn:hover {
+	opacity: 1;
+	transition: .15s ease;
+}

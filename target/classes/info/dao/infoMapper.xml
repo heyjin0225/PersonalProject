@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="infoSQL">
+	<insert id="write" parameterType="java.util.Map">
+		insert into info(seq,id,name,email,subject,content,ref) values(seq_info.nextval,#{id},#{name},#{email},#{subject},#{content},seq_info.currval)
+	</insert>
+	
+	<!-- 목록 -->
+	<select id="boardList" parameterType="java.util.Map" resultType="info">
+		<![CDATA[select * from (select rownum rn, tt.* from (select * from info order by ref desc)tt) where rn>=#{startNum} and rn<=#{endNum}]]>
+		<!-- select * from (select rownum rn, tt.* from (select * from board order by ref desc, step asc)tt) where rn between #{startNum} and #{endNum} -->
+	</select>
+	
+	<!-- 총글수 -->
+	<select id="boardTotalA" resultType="int">
+		select count(*) from info
+	</select>
+</mapper>

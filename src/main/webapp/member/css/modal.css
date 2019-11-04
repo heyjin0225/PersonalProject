@@ -1,0 +1,187 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	line-height: 1.6em;
+}
+/* modal창-로그인 */
+.modal_login {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	display: none;
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+	position: relative;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	margin: 215px auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid rgba(0, 0, 0, .2);
+	width: 35%; /* Could be more or less, depending on screen size */
+	border-radius: 6px;
+	background-clip: padding-box;
+	outline: 0;
+}
+h1,h2{
+	color: #3a3a3a;
+	font-weight: 700;
+	font-family: "Montserrat", sans-serif;
+	margin-top: 20px;
+	line-height: 1.1;
+	
+}
+label{
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: 700;
+	font-family: "Open Sans", sans-serif;
+}
+/* 로그인 */
+.x_img{
+	float: right;
+	margin-top: -5px;
+}
+.input-container{
+	padding-bottom: 5px;
+}
+#loginPwd{
+	margin-left: 3.5px;
+	width: 150px;
+}
+/* modal창-회원가입 */
+.modal_register {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	display: none;
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+}
+/* 회원가입 */
+#id{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;
+}
+#name{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;
+}
+#password{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;
+}
+#re_password{
+	width: 65px;
+  	display: inline-block;
+  	float: left;
+  	text-align: center;
+  	margin-top: -5px;
+}
+#rePwd{
+	margin-top: 7px;
+}
+#email{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;
+}
+#zipcode{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;
+}
+#address{
+	width: 65px;
+  	display: inline-block;
+  	text-align: center;	
+}
+.addr1{
+	width: 270px;
+}
+#de_address{
+	width: 65px;
+  	display: inline-block;
+  	float: left;
+  	text-align: center;
+}
+.addr2{
+	float: left;
+	margin-left: 15.5px;
+	margin-top: 7px;
+	width: 270px;
+}
+/* 아이디/비밀번호 찾기 */
+.modal_find{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	display: none;
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.checkInput{
+	outline: none;
+	z-index: 1;
+	position: relative;
+	background: none;
+	width: 100%;
+	height: 60px;
+	border: 0;
+	color: #212121;
+	font-size: 24px;
+	font-weight: 400;
+}
+.bar{
+	left: 10px;
+	bottom: 0;
+	background: #000000;
+	width: 100%;
+	height: 1px;
+}
+.rerun {
+  margin: 0 0 30px;
+  text-align: center;
+}
+.rerun a {
+  cursor: pointer;
+  display: inline-block;
+  width: 100px;
+  background: #ed2553;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.rerun a:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.findBtn button{
+	background: 0px;
+	margin: 0px 25px; 
+	padding: 18px 0px; 
+	outline: 0px; 
+	border: 2px solid rgb(227, 227, 227); 
+	transition:0.3s; 
+	border-image: none; 
+	width: 90%; 
+	text-align: center; 
+	text-transform: uppercase; 
+	line-height: 1; 
+	overflow: hidden; 
+	font-size: 24px; 
+	font-weight: 600; 
+	display: inline-block; 
+	position: relative; 
+	cursor: pointer;
+	
+}

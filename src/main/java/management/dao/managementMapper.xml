@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="managementSQL">
+	<select id="getMemberType" parameterType="String" resultType="String">
+		select type from member where id=#{id }
+	</select>
+	
+	<select id="heartList" parameterType="java.lang.String"
+		resultType="java.util.Map">
+		select seq, id, countryid, countryid2,cityid,wordname,cityimage from trip
+		join member using(id) where seq in (select heart_no from heart where heart_id=#{memId} and heart_check=1)
+		group by seq, wordname, cityid, cityimage, id, countryid, countryid2
+	</select>
+	
+	<!-- 개인회원 정보수정 -->
+	<update id="updateInfo" parameterType="member">
+		update member set
+		name=#{name}, pwd=#{pwd}, zipcode=#{zipcode}, addr1=#{addr1}, addr2=#{addr2}, email=#{email} where
+		id=#{id}
+	</update>
+	
+	<delete id="userHeartDelete" parameterType="String">
+		delete heart where heart_id=#{id}
+	</delete>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="userDelete" parameterType="Map">
+		delete member where
+		id=#{id} and pwd=#{pwd}
+	</delete>
+	
+	<!-- 타입에 의해 memberinfo 조회 -->
+	<select id="getMemberByType" parameterType="String"
+		resultType="member">
+		select * from member where type=#{type }
+	</select>
+	
+	<!-- 개인회원 total 조회 -->
+	<select id="getMemberTotal" resultType="String">
+		select count(*) from
+		member where type='0'
+	</select>
+
+	<!-- 개인회원 삭제 -->
+	<delete id="memberDelete" parameterType="String">
+		delete member where
+		id=#{id }
+	</delete>
+
+	<!-- 개인회원 비밀번호 수정 -->
+	<update id="memberPwdModify" parameterType="Map">
+		update member set
+		pwd=#{modifyPwd } where id=#{id }
+	</update>
+	
+	<!-- 추천 나라 list -->
+	<select id="recommendList" resultType="java.util.Map">
+		select * from countryinfo
+	</select>	
+	
+	<!-- 추천나라 삭제 -->
+	<delete id="recommendCountryDelete" >
+		delete cityrecommend
+	</delete>	
+	
+	<!-- 추천 나라 등록 -->
+	<insert id="recommendCountryRegist" parameterType="java.lang.String">
+		insert into cityrecommend (select cityid, wordname, cityimage1 from countryinfo where wordname = #{value })
+	</insert>	
+	
+	<!-- 나라 total 조회 -->
+	<select id="getTotalCountry" resultType="String">
+		select count(*) from
+		countryinfo
+	</select>
+	
+	<!-- 나라 이름 조회 -->
+	<select id="getCountryName" resultType="String">
+		select distinct wordname
+		from countryinfo
+	</select>
+	
+	<!-- 나라 리스트 조회 -->
+	<select id="getCountryList" parameterType="String"
+		resultType="trip">
+		select * from countryInfo where wordname=#{countryName }
+	</select>
+	
+	<!-- 나라 삭제 -->
+	<delete id="countryDelete" parameterType="String">
+		delete countryinfo
+		where wordname=#{wordname }
+	</delete>
+
+	<!-- 나라 등록 - 이미지 o -->
+	<insert id="countryInsert_Image" parameterType="java.util.Map">
+		insert into countryinfo values(#{cityid}, #{cityimage1}, #{cityimage2}, #{cityimage3}, #{cityimage4}, #{cityimage5}, #{cityaddr}, #{latitud}, #{longitude}, #{cityinfo}, #{climate}, #{travelinfo}, #{visa},#{countryid}, #{countryid2}, #{wordname})
+	</insert>
+	
+	<!-- 나라 등록 - 이미지 x -->
+	<insert id="countryInsert_Not_Image" parameterType="java.util.Map">
+		insert into countryinfo(countryid, countryid2, cityid, wordname, cityaddr,
+					 latitud, longitude, cityinfo, climate, travelinfo, visa) 
+			   values(#{countryid}, #{countryid2}, #{cityid}, #{wordname},
+					#{cityaddr}, #{latitud}, #{longitude}, #{cityinfo}, #{climate}, #{travelinfo}, #{visa})
+	</insert>
+	
+	<!-- 내가 선택한 나라가 있는지 체크 -->
+	<select id="checkCountryList" parameterType="String" resultType="java.util.Map">
+		select * from countryinfo where wordname=#{wordname}
+	</select>
+	
+</mapper>
