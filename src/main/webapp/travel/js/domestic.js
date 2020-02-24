@@ -16,12 +16,13 @@ $(document).ready(function(){
 			dataListSize = dataList.length;
 			$('#domestic-list tr:ge(0)').remove();
 			$.each(data.list, function(index,items){
-				$('<tr/>',{
-					class : items.seq
-				}).append($('<td/>',{
-					style : 'width: 360px;'
+				$('<div/>',{
+					class : items.seq,
+					id : 'allDomesticBox'
 				}).append($('<div/>',{
-					class : 'imageDiv',
+					id : 'imageDomesticBox'
+				}).append($('<div/>',{
+					class : 'imageDomesticDiv',
 					style : 'width: 350px;'
 					}).append($('<img/>',{
 						style : 'border: 1px solid black;',
@@ -29,8 +30,11 @@ $(document).ready(function(){
 						width : '350',
 						height : '250'
 					}))
-				)).append($('<td/>').append($('<div/>',{
-					style : 'width: 260px; overflow: hidden; font-size: 14pt;'
+				)).append($('<div/>',{
+					id : 'textDomesticBox'
+					}).append($('<div/>',{
+					class : 'textDomesticDiv',
+					style : 'overflow: hidden; font-size: 14pt;'
 					}).append($('<span/>',{
 						text : '대륙 카테고리> '
 					})).append($('<strong/>',{
@@ -45,27 +49,29 @@ $(document).ready(function(){
 						html : items.wordname+'<br>'
 					})).append($('<span/>',{
 						text : '소개글> '
-					}))).append($('<div/>',{
+					})).append($('<div/>',{
 						height : '120'
-					}).append($('<h3/>',{
-					html : items.citycontent
-					}))).append($('<a/>',{
-						id : 'heartBtn'+items.seq,
-						class : 'btn_like',
-						onclick : 'moveHeart("'+items.seq+'")'
-						}).append($('<img/>',{
-							class : 'heart_img bye',
-							id : 'heart_img'+items.seq
-						}))
+						}).append($('<h3/>',{
+						html : items.citycontent
+						}))).append($('<a/>',{
+							id : 'heartBtn'+items.seq,
+							class : 'btn_like',
+							onclick : 'moveHeart("'+items.seq+'")'
+							}).append($('<img/>',{
+								class : 'heart_img bye',
+								id : 'heart_img'+items.seq
+							}))
+						)
 					)
 				).appendTo($('#domestic-list'));
-		
-				$('.'+items.seq).after($('<td/>',{
-					colspan : '2',
+
+				/*$('.'+items.seq).after($('<div/>',{
 					id : 'line-after'
 				}).append($('<hr>',{
 					style : ' border-bottom: 1px solid silver; border-left: 1px solid white; border-right: 1px solid white; border-top: 1px solid white;'
-				})));
+				})));*/
+		
+				
 				
 				if((index%5) == 4){
 					$('<td/>',{

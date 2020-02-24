@@ -15,12 +15,13 @@ $(document).ready(function(){
 			dataListSize = dataList.length;
 			$('#overseas-list tr:ge(0)').remove();
 			$.each(data.list, function(index,items){
-				$('<tr/>',{
-					class : items.seq
-				}).append($('<td/>',{
-					style : 'width: 360px;'
+				$('<div/>',{
+					class : items.seq,
+					id : 'allOverseasBox'
 				}).append($('<div/>',{
-					class : 'imageDiv',
+					id : 'imageOverseasBox'
+				}).append($('<div/>',{
+					class : 'imageOverseasDiv',
 					style : 'width: 350px;'
 					}).append($('<img/>',{
 						style : 'border: 1px solid black;',
@@ -28,8 +29,11 @@ $(document).ready(function(){
 						width : '350',
 						height : '250'
 					}))
-				)).append($('<td/>').append($('<div/>',{
-					style : 'width: 250px; overflow: hidden; font-size: 14pt;'
+				)).append($('<div/>',{
+					id : 'textOverseasBox'
+					}).append($('<div/>',{
+					class : 'textOverseasDiv',
+					style : 'overflow: hidden; font-size: 14pt;'
 					}).append($('<span/>',{
 						text : '대륙 카테고리> '
 					})).append($('<strong/>',{
@@ -44,20 +48,21 @@ $(document).ready(function(){
 						html : items.wordname+'<br>'
 					})).append($('<span/>',{
 						text : '소개글> '
-					}))).append($('<div/>',{
+					})).append($('<div/>',{
 						height : '120'
-					}).append($('<h3/>',{
-					html : items.citycontent
-					}))).append($('<a/>',{
-						id : 'heartBtn'+items.seq,
-						class : 'btn_like',
-						onclick : 'moveHeart("'+items.seq+'")'
-						}).append($('<img/>',{
-							class : 'heart_img bye',
-							id : 'heart_img'+items.seq
-						}))
+						}).append($('<h3/>',{
+						html : items.citycontent
+						}))).append($('<a/>',{
+							id : 'heartBtn'+items.seq,
+							class : 'btn_like',
+							onclick : 'moveHeart("'+items.seq+'")'
+							}).append($('<img/>',{
+								class : 'heart_img bye',
+								id : 'heart_img'+items.seq
+							}))
+						)
 					)
-				).append().appendTo($('#overseas-list'));
+				).appendTo($('#overseas-list'));
 		
 			
 				

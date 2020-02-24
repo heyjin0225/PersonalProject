@@ -100,7 +100,7 @@ body{
 
 /* 스마트폰 연결 */
 /*↓ 요건 나  */
-@media only screen and (max-width:500px){
+@media only screen and (max-width:800px){
 	
 	.header_menu a{
 		padding : 5px 10px;
@@ -113,6 +113,7 @@ body{
 		margin-left: 0px;
 		width: 150px;
 	}
+	
 }
 /*↓ 요건 다른 사람*/
 @media only screen and (max-width:400px){

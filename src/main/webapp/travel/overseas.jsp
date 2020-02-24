@@ -72,6 +72,45 @@ h3{
 	-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
 }
+
+#overseas-list{
+	width: 75%;
+}
+#imageOverseasBox{
+	width: 380px;
+	/* margin-right: 20px; */
+	text-align: center;
+}
+#textOverseasBox{
+	width:800px;
+}
+
+@media only screen and (min-width:1501px) and (max-width:1800px){
+	#allOverseasBox{
+		display: flex;
+	}
+}
+
+@media only screen and (max-width:1500px){
+	#allOverseasBox{
+		margin: 0 auto;
+	}
+	
+	#imageOverseasBox{
+		width: 100%;
+	}
+	.imageOverseasDiv{
+		width: 350px;
+		margin: 0 auto;
+	}
+	#textOverseasBox{
+		width: auto;
+	}
+	.textOverseasDiv{
+		width: 350px;
+		margin: 0 auto;
+	}
+}
 </style>
 
 <section id="display">
@@ -82,7 +121,7 @@ h3{
 				<h2 style="font-size: 20pt;">해외 여행지</h2>
 			</div>
 			<!-- 해외 여행지는 나라 선택 (아시아, 유럽, 아프리카, 남아메리카, 북아메리카, 오세아니아) -->
-			<div style="margin: 0px auto; width: 75%; text-align: right;">
+			<div style="margin: 0px auto; width: 75%; text-align: right; word-break: keep-all; ">
 				<a class="continent" onclick="return false;" value="아시아">아시아</a>&emsp;
 				<a class="continent" onclick="return false;" value="유럽">유럽</a>&emsp;
 				<a class="continent" onclick="return false;" value="중동">중동</a>&emsp;
@@ -94,7 +133,7 @@ h3{
 		</div>
 		<!--/.container-->
 	</section>
-	<table id="overseas-list" style ="margin: 0 auto; width : 75%;"></table>
+	<table id="overseas-list" style ="margin: 0 auto;"></table>
 	<!--/.explore-->
 	<!--explore end -->
 </section>

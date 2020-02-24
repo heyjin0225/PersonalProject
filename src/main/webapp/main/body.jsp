@@ -6,6 +6,14 @@
 	padding-right: 20px;
 	width: 400px;
 }
+/*max-width는 전체 화면의 크기를 말한다.  */
+@media only screen and (max-width:1200px){
+	.recommendCountryContent{
+		/* flex-direction:column; */
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
 </style>
 
 <section id="display">
@@ -130,6 +138,7 @@ $(document).ready(function() {
          	});
          }
 	});
+	
 	
 
 });

@@ -49,20 +49,58 @@ h3{
     background-size: 36px 30px;
     animation: off_m 1.06s steps(66);
 }
+#domestic-list{
+	width : 75%;
+}
+#imageDomesticBox{
+	width: 380px;
+	margin-right: 20px;
+	text-align: center;
+}
+#textDomesticBox{
+	width: 800px;
+}
+/*max-width는 전체 화면의 크기를 말한다.  */
+@media only screen and (min-width:1501px) and (max-width:1800px){
+	#allDomesticBox{
+		display:flex;
+	}
+}
+@media only screen and (max-width:1500px){
+	
+	#allDomesticBox {
+		margin: 0 auto;
+	}
+	#imageDomesticBox{
+		width: 100%; 
+	}
+	.imageDomesticDiv{
+		 width: 350px; 
+		 margin: 0 auto;
+	}
+	#textDomesticBox{
+		width: auto;
+	
+	}
+	.textDomesticDiv{
+		width: 350px; 
+		margin: 0 auto;
+	}
+}
 </style>
 <input type="hidden" id="pg" value="${pg}" />
 <section id="display">
 	<!--explore start -->
 	<section id="domestic" class="domestic">
 		<div class="container">
-			<div class="section-header" style="text-align: center;">
+			<div class="section-header" style="text-align: center; margin:0 auto; width:50%;">
 				<h2 style="font-size: 20pt; padding: 10px;">국내 여행지</h2>
 				
 			</div>
 		</div>
 		<!--/.container-->
 	</section>
-	<table id="domestic-list" style ="margin: 0 auto; width : 75%;"></table>
+	<div id="domestic-list" style ="margin: 0 auto; "></div>
 	
 	<!--/.explore-->
 	<!--explore end -->
@@ -70,7 +108,7 @@ h3{
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../travel/js/domestic.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function(){	
 	var memId = "<%=session.getAttribute("memId") %>";
 	if (memId != "null"){
 		var heart_id = memId;

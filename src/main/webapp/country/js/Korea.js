@@ -12,12 +12,12 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			dataList = data.list;
+			/*dataList = data.list;
 			dataListSize = dataList.length;
-			$('#Korea-list tr:ge(0)').remove();
+			$('#Korea-list tr:ge(0)').remove();*/
 			$.each(data.list, function(index,items){
 				$('<div/>',{
-					style : 'width: 380px; float: left;',
+					style : 'width: 380px;',
 					class : 'countryImage',
 					onclick : 'moveToWordname("'+items.wordname+'")'
 				}).append($('<div/>',{
@@ -40,17 +40,22 @@ $(document).ready(function(){
 				)).appendTo($('#Korea-list'));
 		
 				
-				if((index%9) == 8){
-					$('<div/>',{
+				/*if((index%9) == 8){
+					$('#Korea-list').after($('<div/>',{
+						class : 'nextviewDiv'
+					}).append($('<div/>',{
 						id : 'nextView',
 						class : 'form-control',
 						text : '더보기'
-					}).appendTo($('.nextviewDiv'));
+					})))
+					
 					listIndex = index;
 					return false;
-				}
+				}*/
+				
+				//더보기는 하지 않고 무한 스크롤로 바꾸기 즉 다 바꾸자!!
 			});//$.each
-			i = i+9;
+			/*i = i+9;
 			$('#nextView').on('click',function(){
 				$('#nextView').hide();
 				for(j = i; j<i+9; j++){
@@ -80,7 +85,7 @@ $(document).ready(function(){
 	
 				}
 				$('#nextView').show();
-			});
+			});*/
 			
 		},//success
 		error: function(data){
